@@ -11,18 +11,39 @@
   <script src="main.js" defer></script>
 </head>
 <body>
-  <section class="player-one players">
-    <img src="assets/class-titan-svgrepo-com.svg" alt="titan logo" class="img-players">
-    <h2 class="player-name">Player One</h2>
-  </section>
-  <main class="game-view">
-    <h1 class="main-title">Tic-Tac-Toe of Destiny</h1>
-    <h2 class="win-counter">0-0</h2>
-    <h3 class="turn-indicator">Titan, it's your move!</h3>
-  </main>
-   <section class="player-two players">
-    <img src="assets/class-warlock-svgrepo-com.svg" alt="warlock logo" class="img-players">
-    <h2 class="player-name">Player Two</h2>
-  </section>
+  <div class="view-wrapper">
+    <section class="player-one players">
+      <img src="assets/clan-banner2.png" alt="banner" class="player-one-banner">
+      <img src="assets/class-titan-svgrepo-com.svg" alt="titan logo" class="img-players">
+      <h2 class="player-name">Titan</h2>
+    </section>
+    <main class="game-view">
+      <h1 class="main-title">Tic-Tac-Toe of Destiny</h1>
+      <h3 class="turn-indicator">Titan, it's your move!</h3>
+      <section class="ttt-box-bg">
+        <section class="ttt-grid">
+          <div class="box1 boxes">1</div>
+          <div class="box2 boxes">2</div>
+          <div class="box3 boxes">3</div>
+          <div class="box4 boxes">4</div>
+          <div class="box5 boxes">5</div>
+          <div class="box6 boxes">6</div>
+          <div class="box7 boxes">7</div>
+          <div class="box8 boxes">8</div>
+          <div class="box9 boxes">9</div>
+        </section>
+      </section>
+      <div class="win-counter">
+        <h2 class="wins-player-one">0</h2>
+        <h2 class="wins-divider">-</h2>
+        <h2 class="wins-player-two">0</h2>
+      </div>
+    </main>
+    <section class="player-two players">
+      <img src="assets/clan-banner3.png" alt="banner" class="player-two-banner">
+      <img src="assets/class-warlock-svgrepo-com.svg" alt="warlock logo" class="img-players">
+      <h2 class="player-name">Warlock</h2>
+    </section>
+  </div>
 </body>
 </html>

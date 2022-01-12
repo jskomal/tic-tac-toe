@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+/* Josh Comeau's CSS Reset and set font */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'Libre Baskerville', serif;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
 }
 
 * {
@@ -20,6 +20,8 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  /* background: linear-gradient(to bottom, #d0d1d3 , grey); */
+  background-color: #858585;
 }
 
 img,
@@ -51,4 +53,65 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+.view-wrapper {
+  display:flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.players {
+  width: 25vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5vw;
+  background-color: #6e47767e;
+  font-size: 2em;
+}
+
+.players > img {
+  width: 60%;
+}
+
+.game-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2em;
+}
+
+.ttt-box-bg {
+  width: 40vw;
+  height: 40vw;
+  background-image: url('assets/grid-3x3-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.ttt-grid {
+    margin: 5.95%;
+    width: auto;
+    height: 88%;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 7%;
+}
+
+.boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.win-counter {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
 }
