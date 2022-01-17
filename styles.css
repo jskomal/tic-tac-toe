@@ -120,8 +120,6 @@ h6 {
 }
 
 .ttt-grid {
-  border: 1px solid red;
-  
   margin: 5.95%;
   height: 88%;
   display: grid;
@@ -156,12 +154,4 @@ h6 {
   display: flex;
   justify-self: center;
   align-self: center;
-}
-
-.titan {
-  width: 70%;
-}
-
-.warlock {
-  width: 70%;
 }
