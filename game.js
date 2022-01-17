@@ -13,6 +13,7 @@ class Game {
     this.warlock = new Player('two', 'warlock');
     this.currentBoard = [];
     this.titanTurn = this.randomizeStartTurn();
+    this.tokensPlaced = 0;
   }
 
   randomizeStartTurn() {
@@ -26,6 +27,7 @@ class Game {
   placeToken(e) {
     if (this.titanTurn) {
       this.currentBoard.splice(e.target.id, 0, this.tokensPlaced);
+      this.tokensPlaced++;
     }
   }
 
