@@ -1,12 +1,7 @@
 class Player {
-  constructor() {
-    this.id = 'one';
-    this.token = 'titan';
+  constructor(id, character) {
+    this.id = id;
+    this.token = character;
     this.wins = 0;
-  }
-
-  becomePlayerTwo() {
-    this.id = 'two'
-    this.token = 'warlock'
   }
 }

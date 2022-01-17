@@ -1,67 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic-Tac-Toe of Destiny</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="player.js" defer></script>
-  <script src="game.js" defer></script>
-  <script src="main.js" defer></script>
-</head>
-<body>
-  <div class="view-wrapper">
-    <section class="player-one players">
-      <img src="assets/clan-banner2.png" alt="banner" class="player-one-banner">
-      <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan logo" class="img-players">
-      <h2 class="player-name">Titan</h2>
-    </section>
-    <main class="game-view">
-      <h1 class="main-title">Tic-Tac-Toe of Destiny</h1>
-      <h3 class="turn-indicator">Titan, it's your move!</h3>
-      <section class="ttt-box-bg">
-        <section class="ttt-grid">
-          <div class="box1 boxes">
-            <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan-icon" class="placed-token hidden">
-          </div>
-          <div class="box2 boxes">
-            <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan-icon" class="placed-token hidden">
-          </div>
-          <div class="box3 boxes">
-            <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan-icon" class="placed-token hidden">
-          </div>
-          <div class="box4 boxes">
-            <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan-icon" class="placed-token hidden">
-          </div>
-          <div class="box5 boxes">
-            <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan-icon" class="placed-token hidden">
-          </div>
-          <div class="box6 boxes">
-            <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan-icon" class="placed-token hidden">
-          </div>
-          <div class="box7 boxes">
-            <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan-icon" class="placed-token hidden">
-          </div>
-          <div class="box8 boxes">
-            <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan-icon" class="placed-token hidden">
-          </div>
-          <div class="box9 boxes">
-            <img src="assets/class-titan-proportional-svgrepo-com.svg" alt="titan-icon" class="placed-token hidden">
-          </div>
-        </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe of Destiny</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="player.js" defer></script>
+    <script src="game.js" defer></script>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div class="view-wrapper">
+      <section class="player-one players">
+        <img
+          src="assets/clan-banner2.png"
+          alt="banner"
+          class="player-one-banner"
+        />
+        <img
+          src="assets/class-titan-proportional-svgrepo-com.svg"
+          alt="titan logo"
+          class="img-players"
+        />
+        <h2 class="player-name">Titan</h2>
       </section>
-      <div class="win-counter">
-        <h2 class="wins-player-one">0</h2>
-        <h2 class="wins-divider">-</h2>
-        <h2 class="wins-player-two">0</h2>
-      </div>
-    </main>
-    <section class="player-two players">
-      <img src="assets/clan-banner3.png" alt="banner" class="player-two-banner">
-      <img src="assets/class-warlock-proportional-svgrepo-com.svg" alt="warlock logo" class="img-players">
-      <h2 class="player-name">Warlock</h2>
-    </section>
-  </div>
-</body>
+      <main class="game-view">
+        <h1 class="main-title">Tic-Tac-Toe of Destiny</h1>
+        <h3 class="turn-indicator">Titan, it's your move!</h3>
+        <section class="ttt-box-bg">
+          <section class="ttt-grid">
+            <div class="boxes" id="0"></div>
+            <div class="boxes" id="1"></div>
+            <div class="boxes" id="2"></div>
+            <div class="boxes" id="3"></div>
+            <div class="boxes" id="4"></div>
+            <div class="boxes" id="5"></div>
+            <div class="boxes" id="6"></div>
+            <div class="boxes" id="7"></div>
+            <div class="boxes" id="8"></div>
+          </section>
+        </section>
+        <div class="win-counter">
+          <h2 class="wins-player-one">0</h2>
+          <h2 class="wins-divider">-</h2>
+          <h2 class="wins-player-two">0</h2>
+        </div>
+      </main>
+      <section class="player-two players">
+        <img
+          src="assets/clan-banner3.png"
+          alt="banner"
+          class="player-two-banner"
+        />
+        <img
+          src="assets/class-warlock-proportional-svgrepo-com.svg"
+          alt="warlock logo"
+          class="img-players"
+        />
+        <h2 class="player-name">Warlock</h2>
+      </section>
+    </div>
+  </body>
 </html>
