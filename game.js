@@ -1,9 +1,12 @@
 /*
 Game Flow:
-player1 takes a turn, places token
-turn ends, check for wins and change turn
-player2 takes a turn, places token
-rinse and repeat until checkForWin returns true or CheckForDraw returns true
+player1 chooses an empty tile
+code checks if tile is empty
+if so, place the name for the current turn (ie. titan/warlock) in the index of current game board
+increase the tokenPlaced counter
+check for wins
+check for draws
+change turn
 
 */
 
@@ -11,30 +14,35 @@ class Game {
   constructor() {
     this.titan = new Player('one', 'titan');
     this.warlock = new Player('two', 'warlock');
-    this.currentBoard = [];
+    this.currentBoard = ['','','','','','','','',''];
+    this.currentTurn = '';
     this.titanTurn = this.randomizeStartTurn();
     this.tokensPlaced = 0;
   }
 
   randomizeStartTurn() {
     if (Date.now() % 2 === 0) {
-      return true
+      this.currentTurn = 'titan';
+      return true;
     } else {
-      return false
+      this.currentTurn = 'warlock';
+      return false;
     }
   }
 
   placeToken(e) {
-    if (this.titanTurn) {
-      this.currentBoard.splice(e.target.id, 0, this.tokensPlaced);
+    var id = e.target.id;
+    if (!gameTiles.id) {
+      this.currentBoard.splice(id, 0, this.currentTurn);
       this.tokensPlaced++;
     }
   }
-
+  
   turnEnd() {
     this.titanTurn = !this.titanTurn;
+    this.currentTurn = this.currentTurn === 'titan' ? 'warlock' : 'titan';
   }
-
+  
   checkForWin() {
     var winTopAcc = [0,1,2] //[1,1,1,0,0,0,0,0,0];
     var winMidAcc = [3,4,5] //[0,0,0,1,1,1,0,0,0];
@@ -46,9 +54,9 @@ class Game {
     var winDiagUp = [2,4,6] //[0,0,1,0,1,0,1,0,0];
     var wins = [winTopAcc,winMidAcc,winBotAcc,winColLef,winColMid,winColRig,winDiagDn,winDiagUp];
   }
-
+  
   checkForDraw() {
-
+    
   }
+  
 }
-
