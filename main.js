@@ -36,11 +36,14 @@ winsCounterWarlock.innerText = game.warlock.wins;
 function checkForEnd() {
   if (game.isWon) {
     endScreen.classList.remove('hidden')
-    endText.innerText = `Congratulations, ${game.currentPlayer === 'titan' ? 'Warlock' : 'Titan'}, you've won! Let's go again!`
+    endText.innerText = `Congratulations, ${game.currentPlayer === 'titan' ? 'Warlock' : 'Titan'}, 
+      You've won!
+      Let's go again!`
     restart();
   } else if (game.isDraw) {
     endScreen.classList.remove('hidden'); 
-    endText.innerText = `No winner this time, Let's go again!`;
+    endText.innerText = `No winner this time, 
+    Let's go again!`;
     restart();
   }
 }

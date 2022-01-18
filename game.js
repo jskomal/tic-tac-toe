@@ -120,7 +120,12 @@ class Game {
   }
 
   restartGame() {
-    
+    this.currentBoard = ['', '', '', '', '', '', '', '', ''];
+    this.currentPlayer = null;
+    this.titanTurn = this.randomizeStartTurn();
+    this.tokensPlaced = 0;
+    this.isWon = false;
+    this.isDraw = false;
   }
 }
 
