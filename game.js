@@ -1,15 +1,3 @@
-/*
-Game Flow:
-player1 chooses an empty tile
-code checks if tile is empty
-if so, place the name for the current turn (ie. titan/warlock) in the index of current game board
-increase the tokenPlaced counter
-check for wins
-check for draws
-change turn
-
-*/
-
 class Game {
   constructor() {
     this.titan = new Player('one', 'titan');
@@ -128,5 +116,3 @@ class Game {
     this.isDraw = false;
   }
 }
-
-

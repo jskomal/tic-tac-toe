@@ -3,58 +3,73 @@ var gameTiles = document.querySelectorAll('.boxes');
 var turnIndicator = document.querySelector('#turnIndicator');
 var winsCounterTitan = document.querySelector('#winsTitan');
 var winsCounterWarlock = document.querySelector('#winsWarlock');
-var endScreen = document.querySelector('#endScreen');
+var endModal = document.querySelector('#endModal');
 var endText = document.querySelector('#endText');
 
 // data
 var game = new Game();
 
-
 // event listeners
-window.addEventListener('load', displayTurn)
+window.addEventListener('load', displayTurn);
 
 gameTiles.forEach(function (element) {
-  element.addEventListener('click', gameFlow)
-})
-
+  element.addEventListener('click', gameFlow, { once: true });
+});
 
 // functions
 function displayTurn() {
-  turnIndicator.innerText = `${game.currentPlayer}, it's your turn!`
+  turnIndicator.innerText = `${game.currentPlayer}, it's your turn!`;
 }
 
 function displayToken(e) {
   targetTile = e.target;
-  targetTile.classList.add((game.currentPlayer === 'titan' ? 'placed-token-warlock' : 'placed-token-titan'))
+  targetTile.classList.add(
+    game.currentPlayer === 'titan'
+      ? 'placed-token-warlock'
+      : 'placed-token-titan'
+  );
 }
 
 function updateScore() {
-winsCounterTitan.innerText = game.titan.wins;
-winsCounterWarlock.innerText = game.warlock.wins;
+  winsCounterTitan.innerText = game.titan.wins;
+  winsCounterWarlock.innerText = game.warlock.wins;
 }
 
 function checkForEnd() {
   if (game.isWon) {
-    endScreen.classList.remove('hidden')
-    endText.innerText = `Congratulations, ${game.currentPlayer === 'titan' ? 'Warlock' : 'Titan'}, 
+    endModal.classList.add('active');
+    endText.innerText = `Congratulations, ${
+      game.currentPlayer === 'titan' ? 'Warlock' : 'Titan'
+    }! 
       You've won!
-      Let's go again!`
+      
+      Get ready for the next game!`;
     restart();
   } else if (game.isDraw) {
-    endScreen.classList.remove('hidden'); 
+    endModal.classList.add('active');
     endText.innerText = `No winner this time, 
-    Let's go again!`;
+
+    Get ready for the next game!`;
     restart();
   }
 }
 
 function restart() {
-  gameTiles.forEach(element => {
+  gameTiles.forEach((element) => {
     element.classList.remove('placed-token-warlock');
     element.classList.remove('placed-token-titan');
-  })
-  game.restartGame()
-  setTimeout(() => {endScreen.classList.add('hidden')}, 2500)
+  });
+  game.restartGame();
+  endModal.classList.add('active');
+  gameTiles.forEach(function (element) {
+    element.removeEventListener('click', gameFlow, { once: true });
+  });
+  gameTiles.forEach(function (element) {
+    element.addEventListener('click', gameFlow, { once: true });
+  });
+  setTimeout(() => {
+    endModal.classList.remove('active');
+  }, 3500);
 }
 
 function gameFlow(e) {
@@ -64,4 +79,3 @@ function gameFlow(e) {
   checkForEnd();
   displayTurn();
 }
-

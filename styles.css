@@ -22,7 +22,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background: linear-gradient(rgb(91, 91, 91),#414348);
+  background: linear-gradient(rgb(91, 91, 91), #414348);
 }
 
 img,
@@ -61,14 +61,9 @@ h6 {
   visibility: hidden;
 }
 
-.fully-hidden {
-  display: none;
-}
-
 /* page view */
-
 .view-wrapper {
-  display:flex;
+  display: flex;
   justify-content: center;
   height: 100%;
   width: 100%;
@@ -104,6 +99,10 @@ h6 {
   font-size: 1.5vw;
 }
 
+h1 {
+  margin-top: 1vw;
+}
+
 .game-view {
   display: flex;
   flex-direction: column;
@@ -128,45 +127,57 @@ h6 {
   gap: 6.4%;
 }
 
-.boxes {
+/* .boxes {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  possibly redundant
+} */
 
 .win-counter {
   width: 20%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1vw;
 }
 
 .placed-token-titan {
-  content:url(assets/class-titan-proportional-svgrepo-com.svg);
-  width:90%;
+  content: url(assets/class-titan-proportional-svgrepo-com.svg);
+  width: 90%;
   display: flex;
   justify-self: center;
   align-self: center;
 }
 
 .placed-token-warlock {
-  content:url(assets/class-warlock-proportional-svgrepo-com.svg);
-  width:90%;
+  content: url(assets/class-warlock-proportional-svgrepo-com.svg);
+  width: 90%;
   display: flex;
   justify-self: center;
   align-self: center;
 }
 
 .end-screen {
-  position:fixed;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  height: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgb(109, 109, 109);
+  background-color: rgb(109, 109, 109);
+  transition: 250ms ease-in-out;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+.active {
+  padding: 5%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 500ms ease-in-out;
+  pointer-events: none;
+}
+
+.end-text {
+  font-size: 2vw;
 }
