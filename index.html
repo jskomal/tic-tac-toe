@@ -11,6 +11,9 @@
     <script src="main.js" defer></script>
   </head>
   <body>
+    <section class="end-screen hidden" id="endScreen">
+      <h1 id="endText"></h1>
+    </section>
     <div class="view-wrapper">
       <section class="player-one players">
         <img
@@ -27,7 +30,9 @@
       </section>
       <main class="game-view">
         <h1 class="main-title">Tic-Tac-Toe of Destiny</h1>
-        <h3 class="turn-indicator">Titan, it's your move!</h3>
+        <h3 class="turn-indicator" id="turnIndicator">
+          Titan, it's your move!
+        </h3>
         <section class="ttt-box-bg">
           <section class="ttt-grid">
             <div class="boxes" id="0"></div>
@@ -42,9 +47,9 @@
           </section>
         </section>
         <div class="win-counter">
-          <h2 class="wins-player-one">0</h2>
+          <h2 id="winsTitan">0</h2>
           <h2 class="wins-divider">-</h2>
-          <h2 class="wins-player-two">0</h2>
+          <h2 id="winsWarlock">0</h2>
         </div>
       </main>
       <section class="player-two players">
