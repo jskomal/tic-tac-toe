@@ -18,6 +18,8 @@ class Game {
     this.currentPlayer = null;
     this.titanTurn = this.randomizeStartTurn();
     this.tokensPlaced = 0;
+    this.isWon = false;
+    this.isDraw = false;
   }
 
   randomizeStartTurn() {
@@ -30,11 +32,14 @@ class Game {
     }
   }
 
-  placeToken(e) {
+  takeTurn(e) {
     var id = e.target.id;
     if (!gameTiles.id) {
       this.currentBoard.splice(id, 1, this.currentPlayer);
       this.tokensPlaced++;
+      this.checkForWin()
+      this.checkForDraw()
+      this.turnEnd();
     }
   }
   
@@ -53,10 +58,35 @@ class Game {
     var winDiagDn = [0,4,8] //[1,0,0,0,1,0,0,0,1];
     var winDiagUp = [2,4,6] //[0,0,1,0,1,0,1,0,0];
     var wins = [winTopAcc,winMidAcc,winBotAcc,winColLef,winColMid,winColRig,winDiagDn,winDiagUp];
+
+    var titanIncrementer = -1;
+    var titanWins = this.currentBoard.map((index) => {
+      if (index === 'titan') {
+        titanIncrementer++;
+        return titanIncrementer;
+      } else {
+        titanIncrementer++;
+        return '';
+      }
+    });
+
+     var warlockIncrementer = -1;
+     var warlockWins = this.currentBoard.map((index) => {
+       if (index === 'warlock') {
+         warlockIncrementer++;
+         return warlockIncrementer;
+       } else {
+         warlockIncrementer++;
+         return '';
+       }
+     });
+    // check that titanWins or warlockWins fulfill the wins array (some or every?)
   }
   
   checkForDraw() {
-    
+    if (this.tokensPlaced === 9 && !this.isWon) {
+      this.isDraw = true;
+      return;
+    }
   }
-  
 }

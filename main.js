@@ -11,7 +11,7 @@ var game = new Game();
 window.addEventListener('load', displayTurn)
 
 gameTiles.forEach(function (element) {
-  element.addEventListener('click', takeTurn)
+  element.addEventListener('click', gameFlow)
 })
 
 
@@ -20,11 +20,14 @@ function displayTurn() {
   turnIndicator.innerText = `${game.currentPlayer}, it's your turn!`
 }
 
-function takeTurn(e) {
-  game.placeToken(e);
-  game.checkForWin();
-  game.checkForDraw();
-  game.turnEnd();
+function displayToken(e) {
+  targetTile = e.target;
+  targetTile.classList.add((game.currentPlayer === 'titan' ? 'placed-token-warlock' : 'placed-token-titan'))
+}
+
+function gameFlow(e) {
+  game.takeTurn(e);
+  displayToken(e);
   displayTurn();
 }
 
