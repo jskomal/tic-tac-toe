@@ -98,7 +98,6 @@ class Game {
       ) {
         this.isWon = true;
         this.titan.wins++;
-        this.handleEnd();
       }
     }
 
@@ -117,14 +116,11 @@ class Game {
   checkForDraw() {
     if (this.tokensPlaced === 9 && !this.isWon) {
       this.isDraw = true;
-      this.handleEnd();
     }
   }
 
-  handleEnd() {
-    if (this.isDraw) {
-      
-    }
+  restartGame() {
+    
   }
 }
 

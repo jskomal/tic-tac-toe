@@ -3,6 +3,8 @@ var gameTiles = document.querySelectorAll('.boxes');
 var turnIndicator = document.querySelector('#turnIndicator');
 var winsCounterTitan = document.querySelector('#winsTitan');
 var winsCounterWarlock = document.querySelector('#winsWarlock');
+var endScreen = document.querySelector('#endScreen');
+var endText = document.querySelector('#endText');
 
 // data
 var game = new Game();
@@ -31,10 +33,32 @@ winsCounterTitan.innerText = game.titan.wins;
 winsCounterWarlock.innerText = game.warlock.wins;
 }
 
+function checkForEnd() {
+  if (game.isWon) {
+    endScreen.classList.remove('hidden')
+    endText.innerText = `Congratulations, ${game.currentPlayer === 'titan' ? 'Warlock' : 'Titan'}, you've won! Let's go again!`
+    restart();
+  } else if (game.isDraw) {
+    endScreen.classList.remove('hidden'); 
+    endText.innerText = `No winner this time, Let's go again!`;
+    restart();
+  }
+}
+
+function restart() {
+  gameTiles.forEach(element => {
+    element.classList.remove('placed-token-warlock');
+    element.classList.remove('placed-token-titan');
+  })
+  game.restartGame()
+  setTimeout(() => {endScreen.classList.add('hidden')}, 2500)
+}
+
 function gameFlow(e) {
   game.takeTurn(e);
   displayToken(e);
   updateScore();
+  checkForEnd();
   displayTurn();
 }
 
