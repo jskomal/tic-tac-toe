@@ -15,17 +15,17 @@ class Game {
     this.titan = new Player('one', 'titan');
     this.warlock = new Player('two', 'warlock');
     this.currentBoard = ['','','','','','','','',''];
-    this.currentTurn = '';
+    this.currentPlayer = null;
     this.titanTurn = this.randomizeStartTurn();
     this.tokensPlaced = 0;
   }
 
   randomizeStartTurn() {
     if (Date.now() % 2 === 0) {
-      this.currentTurn = 'titan';
+      this.currentPlayer = 'titan';
       return true;
     } else {
-      this.currentTurn = 'warlock';
+      this.currentPlayer = 'warlock';
       return false;
     }
   }
@@ -33,14 +33,14 @@ class Game {
   placeToken(e) {
     var id = e.target.id;
     if (!gameTiles.id) {
-      this.currentBoard.splice(id, 0, this.currentTurn);
+      this.currentBoard.splice(id, 1, this.currentPlayer);
       this.tokensPlaced++;
     }
   }
   
   turnEnd() {
     this.titanTurn = !this.titanTurn;
-    this.currentTurn = this.currentTurn === 'titan' ? 'warlock' : 'titan';
+    this.currentPlayer = this.currentPlayer === 'titan' ? 'warlock' : 'titan';
   }
   
   checkForWin() {
