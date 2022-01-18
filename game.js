@@ -116,5 +116,3 @@ class Game {
     this.isDraw = false;
   }
 }
-
-
